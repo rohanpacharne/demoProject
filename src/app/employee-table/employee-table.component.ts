@@ -112,8 +112,6 @@ export class EmployeeTableComponent implements OnInit {
 
   selectEmployee(employeeId: number) {
     this.selectedEmployeeId = employeeId;
-    this.selectedEmployeeId = employeeId;
-    this.selectedEmployeeId = employeeId;
   }
 
   calculateRecordRange() {
