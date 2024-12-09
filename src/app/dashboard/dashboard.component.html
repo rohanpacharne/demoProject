@@ -1,0 +1,103 @@
+<!-- <table class="employee-table" *ngIf="CountOfEmployeeByDepartmentList.length>0">
+    <thead>
+        <tr>
+            <th>Department Name</th>
+            <th>No. of Employees</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of CountOfEmployeeByDepartmentList">
+            <td>{{ item.departmentName }}</td>
+            <td>{{ item.count }}</td>
+        </tr>
+        <tr>
+            <th>Total no. of employees</th>
+            <th>{{totalCount}}</th>
+        </tr>
+    </tbody>
+</table> -->
+<div *ngIf="!(CountOfEmployeeByDepartmentList.length > 0)">
+    <h2>Data not available</h2>
+</div>
+<div class="grid-container">
+    <!-- Table 1 -->
+    <table class="employee-table" *ngIf="CountOfEmployeeByDepartmentList.length > 0">
+        <thead>
+            <tr>
+                <th>Department Name</th>
+                <th>No. of Employees</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of CountOfEmployeeByDepartmentList">
+                <td>{{ item.departmentName }}</td>
+                <td>{{ item.countByDepartment }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <th>{{ totalCount }}</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Table 2 -->
+    <table class="employee-table" *ngIf="CountOfEmployeeByRoleList.length > 0">
+        <thead>
+            <tr>
+                <th>Role Name</th>
+                <th>No. of Employees</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of CountOfEmployeeByRoleList">
+                <td>{{ item.roleName }}</td>
+                <td>{{ item.countByRole }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <th>{{ totalCount }}</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Table 3 -->
+    <table class="employee-table" *ngIf="CountOfEmployeeByDepartmentList.length > 0" hidden="true">
+        <thead>
+            <tr>
+                <th>Some Header 1</th>
+                <th>Some Header 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of CountOfEmployeeByDepartmentList">
+                <td>{{ item.headerA }}</td>
+                <td>{{ item.headerB }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <th>{{ totalCount }}</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Table 4 -->
+    <table class="employee-table" *ngIf="CountOfEmployeeByDepartmentList.length > 0" hidden="true">
+        <thead>
+            <tr>
+                <th>Some Header 1</th>
+                <th>Some Header 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of CountOfEmployeeByDepartmentList">
+                <td>{{ item.finalProperty1 }}</td>
+                <td>{{ item.finalProperty2 }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <th>{{ totalCount }}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

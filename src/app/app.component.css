@@ -1,0 +1,81 @@
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+      "header header"
+      "side-nav content"
+      "footer footer";
+    /* grid-template-rows: auto 1fr auto; */
+    grid-template-rows: 100px 1fr auto; /* Adjust the header height to 50px */
+    grid-template-columns: 200px 1fr;
+    height: 100vh;
+  }
+  .header {
+    grid-area: header;
+    background: linear-gradient(145deg, #aadfe2, #9bbdca); /* Subtle gradient for depth */
+    padding: 5px; /* Increased padding for a more pronounced effect */
+    border-radius: 12px; /* Rounded corners for a softer look */
+    text-align: center;
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.1), /* Light shadow for subtle depth */
+      0 1px 3px rgba(0, 0, 0, 0.05); /* Smaller shadow for additional depth */
+    transform: translateZ(0); /* Trigger hardware acceleration for smoother shadows */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+  
+  .header:hover {
+    box-shadow: 
+      0 8px 12px rgba(0, 0, 0, 0.2), /* Increased shadow on hover for a more pronounced effect */
+      0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px); /* Slight lift on hover */
+  }
+  
+  
+  .side-nav {
+    grid-area: side-nav;
+    background: #f4f4f4; /* Light background color */
+    padding: 20px; /* Increased padding for better effect */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.1), /* Light shadow for subtle depth */
+      0 2px 4px rgba(0, 0, 0, 0.05); /* Additional shadow for depth */
+    transform: translateZ(0); /* Trigger hardware acceleration for smoother shadows */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+  
+  .side-nav:hover {
+    box-shadow: 
+      0 8px 16px rgba(0, 0, 0, 0.2), /* Enhanced shadow on hover for a more pronounced effect */
+      0 4px 8px rgba(0, 0, 0, 0.15); /* Increased shadow depth */
+    transform: translateY(-4px); /* Slight lift on hover for added depth */
+  }
+
+  .content-area {
+    grid-area: content;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f4f4f4;
+    /* background: #ffffff; White background for contrast */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.1), /* Light shadow for subtle depth */
+      0 2px 4px rgba(0, 0, 0, 0.05); /* Smaller shadow for additional depth */
+    transform: translateZ(0); /* Trigger hardware acceleration */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+  
+  .content-area:hover {
+    box-shadow: 
+      0 8px 16px rgba(0, 0, 0, 0.2), /* Enhanced shadow on hover */
+      0 4px 8px rgba(0, 0, 0, 0.15); /* Additional shadow for depth */
+    transform: translateY(-4px); /* Slight lift on hover */
+  }
+  .footer {
+    grid-area: footer;
+    background-color: #444; /* Darker background color for better contrast */
+    color: #f4f4f4; /* Light color for text to stand out against the dark background */
+    padding: 15px; /* Increased padding for better spacing */
+    text-align: center;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for a slight depth */
+  }
+  

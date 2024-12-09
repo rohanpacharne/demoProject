@@ -1,0 +1,94 @@
+<!-- add-employee.component.html -->
+<div class="container">
+    <h2 *ngIf="isView==false">Edit Employee</h2>
+    <h2 *ngIf="isView==true">View Employee</h2>
+    <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" [(ngModel)]="employee.firstName" required [disabled]="isView">
+            </div>
+            <div class="form-group">
+                <label for="middleName">Middle Name</label>
+                <input type="text" id="middleName" name="middleName" [(ngModel)]="employee.middleName" [disabled]="isView">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" [(ngModel)]="employee.lastName" required [disabled]="isView">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="salary">Salary</label>
+                <input type="number" id="salary" name="salary" [(ngModel)]="employee.salary" required [disabled]="isView">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" [(ngModel)]="employee.email" required [disabled]="isView">
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile</label>
+                <input type="tel" id="mobile" name="mobile" [(ngModel)]="employee.mobile" required [disabled]="isView">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <!-- <div class="form-group">
+                <label for="departmentId">Department ID</label>
+                <input type="number" id="departmentId" name="departmentId" [(ngModel)]="employee.departmentId">
+            </div> -->
+            <div class="form-group">
+                <label for="departmentId">Department</label>
+                <select id="departmentId" name="departmentId" [(ngModel)]="employee.departmentId" class="form-control" [disabled]="isView">
+                  <option *ngFor="let department of departmentsList" [value]="department.departmentId">
+                    {{ department.departmentName }}
+                  </option>
+                </select>
+              </div>
+            <!-- <div class="form-group">
+                <label for="roleId">Role ID</label>
+                <input type="number" id="roleId" name="roleId" [(ngModel)]="employee.roleId">
+            </div> -->
+            <div class="form-group">
+                <label for="roleId">Role</label>
+                <select id="roleId" name="roleId" [(ngModel)]="employee.roleId" class="form-control" [disabled]="isView">
+                  <option *ngFor="let roles of rolesList" [value]="roles.roleId">
+                    {{ roles.roleName }}
+                  </option>
+                </select>
+              </div>
+            <!-- <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" id="status" name="status" [(ngModel)]="employee.status" [disabled]="isView">
+            </div> -->
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status" [(ngModel)]="employee.status" class="form-control" [disabled]="isView">
+                  <option *ngFor="let status of commonMasterValuesList" [value]="status.valueCode">
+                    {{ status.valueName }}
+                  </option>
+                </select>
+              </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="employeeCode">Employee Code</label>
+                <input type="text" id="employeeCode" name="employeeCode" [(ngModel)]="employee.employeeCode" required [disabled]="true">
+            </div>
+            <div class="form-group">
+                <label for="hireDate">Hire Date</label>
+                <input type="date" id="hireDate" name="hireDate" [(ngModel)]="employee.hireDate" [disabled]="isView">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+        <button type="submit" class="btn btn-primary" *ngIf="!isView">Update Employee</button>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="cancel()">Cancel</button>
+    </div>
+        </div>
+    </form>
+</div>

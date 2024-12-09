@@ -1,0 +1,54 @@
+<div class="employee-table-container">
+    <div class="header-container">
+        <h2 class="summary-heading">Department Summary</h2>
+        <div class="button-container" *ngIf="pagination.data.length>0">
+            <button (click)="addDepartment()"><i class="fas fa-plus"></i> </button>
+            <button (click)="edit('edit')"><i class="fas fa-edit"></i></button>
+            <!-- <button (click)="delete(pagination.page,size)"><i class="fas fa-trash"></i></button> -->
+            <button (click)="view('view')"><i class="fas fa-eye"></i></button>
+        </div>
+    </div>
+    <table class="employee-table" *ngIf="pagination.data.length>0">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Department Id</th>
+                <th>Department Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let department of pagination.data">
+                <td>
+                    <input 
+                        type="radio" 
+                        name="selectedEmployee" 
+                        [value]="department.departmentId" 
+                        (change)="selectDeaprtment(department.departmentId)" 
+                        [checked]="selectedDepartmentId === department.departmentId"
+                    />
+                </td>
+                <td>{{ department.departmentId }}</td>
+                <td>{{ department.departmentName }}</td>
+                <td>{{ department.departmentDesc }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination-container" *ngIf="pagination.data.length>0">
+        <div class="pagination-controls">
+          <p>Page {{ pagination.page }} of {{ pagination.totalPages }}</p>
+          <button (click)="getAllDepartmentsPagination(1, size)" [disabled]="pagination.page <= 1">First</button>
+          <button (click)="getAllDepartmentsPagination(pagination.page - 1, size)" [disabled]="pagination.page <= 1"><i class="fas fa-chevron-left"></i>
+          </button>
+          <button (click)="getAllDepartmentsPagination(pagination.page + 1, size)" [disabled]="pagination.page >= pagination.totalPages">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <button (click)="getAllDepartmentsPagination(pagination.totalPages, size)" [disabled]="pagination.page >= pagination.totalPages">Last</button>
+        </div>
+        <!-- <p class="total-records">Total records {{ pagination.totalCount }}</p> -->
+        <p>Showing {{ startRecord }} to {{ endRecord }} of {{ pagination.totalCount }} records</p>
+    </div>
+    <div>
+        <h1 *ngIf="pagination.data.length<=0">No departments found</h1>
+    </div>
+</div>
